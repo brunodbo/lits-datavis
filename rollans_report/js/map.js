@@ -1,7 +1,7 @@
 "use strict";
 
 // Set up map.
-var mapId = 'brunodbo.gka6ciem';
+var mapId = 'brunodbo.h62gfb4o';
 if ($(window).width() < 626) {
   var map = L.mapbox.map('map', mapId).setView([54, -121], 6);
 } else {
