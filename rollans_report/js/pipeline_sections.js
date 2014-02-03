@@ -4,7 +4,6 @@ $(function() {
   'use strict';
 
   // Layer style and popup behaviour.
-  var routeColor = '#e44735';
   var routeStyle = {
     'className': 'pipeline',
     'weight': 5,
@@ -14,15 +13,15 @@ $(function() {
 
   function onEachFeature(feature, layer) {
     var popup = L.popup();
-    popup.setContent(
-      '<h2>' + feature.properties.Name + '</h2>' +
+    var popupContent = '<h2>' + feature.properties.Name + '</h2>' +
       '<ul>' +
       '<li>' + 'Risk of a medium pipeline spill: ' + feature.properties.spill_risk_medium + '%' + '</li>' +
       '<li>' +'Risk of a large pipeline spill: ' + feature.properties.spill_risk_large + '%' + '</li>' +
       '<li>' +'Risk of a medium or large pipeline spill: ' + feature.properties.spill_risk_medium_or_large + '%' + '</li>' +
-      '</ul>'
-    );
+      '</ul>';
+    popup.setContent(popupContent);
     layer.bindPopup(popup);
+    $('#features-info').append(popupContent);
   }
 
   var routeLayer = L.geoJson(null, {
