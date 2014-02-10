@@ -107,7 +107,7 @@ audio:not([controls]) {
  */
 html {
   font-family: $base-font-family; /* 1 */
-  font-size: 100% * ($base-font-size / 16px); /* 3 */
+  font-size: 100% * ($rem-base / 16px); /* 3 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
   color: #333;
@@ -141,8 +141,8 @@ a,
   }  
 }
 
-a,i {
-  transition: color .1s, background-color .1s, border .1s;
+a,i,div,path {
+  transition: color .1s, background-color .1s, border .1s, stroke .2s;
 }
 
 /* Address `outline` inconsistency between Chrome and other browsers. */
@@ -261,7 +261,7 @@ var {
   @if $legacy-support-for-ie6 {
     _font-family: 'courier new', monospace;
   }
-  @include adjust-font-size-to( $base-font-size );
+  @include adjust-font-size-to( $rem-base );
 }
 
 /* Improve readability of pre-formatted text in all browsers. */

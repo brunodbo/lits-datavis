@@ -21,6 +21,24 @@
 /* 
  * Base partial: global imports, variables and the like.
  */
+/*
+New Syntax, allows to optionally calculate on a different base value to counter compounding effect of rem's.
+Call with 1, 2, 3 or 4 parameters, 'px' is not required but supported:
+
+  rem-calc(10 20 30px 40);
+
+Space delimited, if you want to delimit using comma's, wrap it in another pair of brackets
+
+  rem-calc((10, 20, 30, 40px));
+
+Optionally call with a different base (eg: 8px) to calculate rem.
+
+  rem-calc(16px 32px 48px, 8px);
+
+If you require to comma separate your list
+
+  rem-calc((16px, 32px, 48), 8px);
+*/
 /**
  * HTML5 display definitions
  */
@@ -118,14 +136,14 @@ audio:not([controls]) {
 html {
   font-family: "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L", sans-serif;
   /* 1 */
-  font-size: 87.5%;
+  font-size: 100%;
   /* 3 */
   -ms-text-size-adjust: 100%;
   /* 2 */
   -webkit-text-size-adjust: 100%;
   /* 2 */
   color: #333;
-  line-height: 1.54286em;
+  line-height: 1.35em;
 }
 
 /* Remove default margin. */
@@ -156,8 +174,8 @@ a:hover, a:focus, a:active,
 }
 
 /* line 144, ../sass/_normalize.scss */
-a, i {
-  transition: color .1s, background-color .1s, border .1s;
+a, i, div, path {
+  transition: color .1s, background-color .1s, border .1s, stroke .2s;
 }
 
 /* Address `outline` inconsistency between Chrome and other browsers. */
@@ -186,18 +204,18 @@ a:hover {
 /* line 171, ../sass/_normalize.scss */
 p,
 pre {
-  margin: 1.71429em 0;
+  margin: 1.5em 0;
 }
 
 /* line 174, ../sass/_normalize.scss */
 p:first-child {
-  margin-top: 0.85714em;
+  margin-top: 0.75em;
 }
 
 /* line 177, ../sass/_normalize.scss */
 blockquote {
   /* Also indent the quote on both sides. */
-  margin: 1.71429em 30px;
+  margin: 1.5em 30px;
 }
 
 /**
@@ -208,50 +226,50 @@ blockquote {
 h1 {
   /* Set the font-size and line-height while keeping a proper vertical rhythm. */
   font-size: 1.45em;
-  line-height: 2.36453em;
+  line-height: 2.06897em;
   /* Set 1 unit of vertical rhythm on the top and bottom margins. */
-  margin-top: 1.18227em;
-  margin-bottom: 1.18227em;
+  margin-top: 1.03448em;
+  margin-bottom: 1.03448em;
 }
 
 /* line 200, ../sass/_normalize.scss */
 h2 {
   font-size: 1.5em;
-  line-height: 2.28571em;
-  margin-top: 1.14286em;
-  margin-bottom: 1.14286em;
+  line-height: 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 /* line 205, ../sass/_normalize.scss */
 h3 {
   font-size: 1.17em;
-  line-height: 1.4652em;
-  margin-top: 1.4652em;
-  margin-bottom: 1.4652em;
+  line-height: 1.28205em;
+  margin-top: 1.28205em;
+  margin-bottom: 1.28205em;
 }
 
 /* line 210, ../sass/_normalize.scss */
 h4 {
   font-size: 1em;
-  line-height: 1.71429em;
-  margin-top: 1.71429em;
-  margin-bottom: 1.71429em;
+  line-height: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 /* line 215, ../sass/_normalize.scss */
 h5 {
   font-size: 0.83em;
-  line-height: 2.0654em;
-  margin-top: 2.0654em;
-  margin-bottom: 2.0654em;
+  line-height: 1.80723em;
+  margin-top: 1.80723em;
+  margin-bottom: 1.80723em;
 }
 
 /* line 220, ../sass/_normalize.scss */
 h6 {
   font-size: 0.67em;
-  line-height: 2.55864em;
-  margin-top: 2.55864em;
-  margin-bottom: 2.55864em;
+  line-height: 2.23881em;
+  margin-top: 2.23881em;
+  margin-bottom: 2.23881em;
 }
 
 /* Address styling not present in IE 8/9, Safari 5, and Chrome. */
@@ -277,7 +295,7 @@ hr {
   height: 0;
   border: 1px solid #666;
   padding-bottom: -1px;
-  margin: 1.71429em 0;
+  margin: 1.5em 0;
 }
 
 /* Address styling not present in IE 8/9. */
@@ -298,7 +316,7 @@ var {
   font-family: "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
   _font-family: 'courier new', monospace;
   font-size: 1em;
-  line-height: 1.71429em;
+  line-height: 1.5em;
 }
 
 /* Improve readability of pre-formatted text in all browsers. */
@@ -350,7 +368,7 @@ menu,
 ol,
 ul {
   /* Address margins set differently in IE 6/7. */
-  margin: 1.71429em 0;
+  margin: 1.5em 0;
 }
 
 /* line 317, ../sass/_normalize.scss */
@@ -433,17 +451,17 @@ fieldset {
   /* Apply borders and padding that keep the vertical rhythm. */
   border-color: #c0c0c0;
   border-top-style: solid;
-  border-top-width: 0.07143em;
-  padding-top: 0.52857em;
+  border-top-width: 0.0625em;
+  padding-top: 0.4625em;
   border-bottom-style: solid;
-  border-bottom-width: 0.07143em;
-  padding-bottom: 1.04286em;
+  border-bottom-width: 0.0625em;
+  padding-bottom: 0.9125em;
   border-left-style: solid;
-  border-left-width: 0.07143em;
-  padding-left: 1.04286em;
+  border-left-width: 0.0625em;
+  padding-left: 0.9125em;
   border-right-style: solid;
-  border-right-width: 0.07143em;
-  padding-right: 1.04286em;
+  border-right-width: 0.0625em;
+  padding-right: 0.9125em;
 }
 
 /**
@@ -621,8 +639,8 @@ table {
   /* Prevent cramped-looking tables */
   /* width: 100%; */
   /* Add vertical rhythm margins. */
-  margin-top: 1.71429em;
-  margin-bottom: 1.71429em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 /* Body */
@@ -638,30 +656,8 @@ html {
   height: 100%;
 }
 
-/* line 20, ../sass/style.scss */
-.btn {
-  -webkit-user-select: none;
-  /* Chrome all / Safari all */
-  -moz-user-select: none;
-  /* Firefox all */
-  -ms-user-select: none;
-  /* IE 10+ */
-  -o-user-select: none;
-  user-select: none;
-}
-
-/* Social links */
-/* line 34, ../sass/style.scss */
-#share ul {
-  margin: 0px;
-}
-/* line 37, ../sass/style.scss */
-#share li {
-  list-style: none;
-}
-
 /* Map */
-/* line 44, ../sass/style.scss */
+/* line 21, ../sass/style.scss */
 #map {
   position: absolute;
   /*float: left;*/
@@ -672,32 +668,115 @@ html {
 }
 
 /* Sidebar */
-/* line 55, ../sass/style.scss */
+/* line 31, ../sass/style.scss */
 #sidebar {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 30%;
+  top: 0;
+  right: 0;
   z-index: 10;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  background-color: rgba(153, 153, 153, 0.95);
+  margin: 0.625rem;
+  width: 30%;
+  max-height: 97%;
+  overflow-y: scroll;
+  color: white;
 }
 
-/* line 65, ../sass/style.scss */
+/* line 45, ../sass/style.scss */
 #sidebar-inner {
   padding: 10px;
 }
 
-/* line 69, ../sass/style.scss */
+/* line 49, ../sass/style.scss */
 .sidebar-title {
   margin: 0;
-  line-height: 1.5em;
+  font-size: 1.75rem;
+  line-height: 1.45em;
 }
 
-/* line 75, ../sass/style.scss */
-#sidebar,
-.map-legend {
+/* line 55, ../sass/style.scss */
+.sidebar-intro {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.45em;
+}
+
+/* line 61, ../sass/style.scss */
+#sidebar {
   -webkit-box-shadow: 0px 0px 5px #333333;
   -moz-box-shadow: 0px 0px 5px #333333;
   box-shadow: 0px 0px 5px #333333;
+}
+
+/* line 65, ../sass/style.scss */
+.info-item-title {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.35em;
+}
+
+/* line 71, ../sass/style.scss */
+.spill-risks {
+  width: 100%;
+  margin: 0;
+}
+/* line 75, ../sass/style.scss */
+.spill-risks thead,
+.spill-risks tbody {
+  font-size: 0.875rem;
+}
+/* line 78, ../sass/style.scss */
+.spill-risks th {
+  text-align: left;
+}
+/* line 81, ../sass/style.scss */
+.spill-risks td {
+  width: 30%;
+}
+/* line 83, ../sass/style.scss */
+.spill-risks td:last-child {
+  width: 40%;
+}
+
+/* line 89, ../sass/style.scss */
+.spill-risks-title {
+  text-align: left;
+  font-weight: bold;
+}
+
+/* line 94, ../sass/style.scss */
+.pipeline-info-item {
+  cursor: pointer;
+  margin-top: 0.625rem;
+  margin-bottom: 0.625rem;
+  padding: 0.625rem;
+  background-color: #b3b3b3;
+}
+/* line 98, ../sass/style.scss */
+.pipeline-info-item:last-child {
+  margin-bottom: 0;
+}
+/* line 103, ../sass/style.scss */
+.pipeline-info-item.active {
+  background-color: gray;
+}
+
+/* line 108, ../sass/style.scss */
+.small-note {
+  margin-top: 0.3125rem;
+  margin-bottom: 0.3125rem;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+/* Legend */
+/* line 116, ../sass/style.scss */
+.map-legend {
   background-color: rgba(153, 153, 153, 0.95);
   color: white;
   -webkit-border-radius: 2px;
@@ -707,357 +786,31 @@ html {
   border-radius: 2px;
 }
 
-/* line 84, ../sass/style.scss */
-.more-info-title {
-  margin-bottom: 0;
-}
-
-/* line 88, ../sass/style.scss */
-.more-info-list {
-  margin-top: 0;
-}
-
-/* Pop-up information */
-/* line 94, ../sass/style.scss */
-.popup_box_header {
-  font-size: 16px;
-}
-
-/* line 99, ../sass/style.scss */
-.leaflet-popup .post-title {
-  font-size: 1.28571em;
-  margin-bottom: 0;
-}
-/* line 103, ../sass/style.scss */
-.leaflet-popup .post-title a:link,
-.leaflet-popup .post-title a:visited {
-  color: #333333;
-}
-/* line 107, ../sass/style.scss */
-.leaflet-popup .post-img {
-  max-width: 100% !important;
-}
-/* line 110, ../sass/style.scss */
-.leaflet-popup p {
-  margin: 0;
-}
-
-/* Credits */
-/* line 117, ../sass/style.scss */
-.credits {
-  font-size: 9px;
-}
-
-/* 'About this map' button, description box */
-/* Mobile only */
-/* line 124, ../sass/style.scss */
-.toggle_description {
-  display: none;
-  z-index: 9;
-  position: relative;
-  float: right;
-  right: 0%;
-  top: 0%;
-}
-
-/* line 133, ../sass/style.scss */
-.description_box_cover {
-  display: none;
-  z-index: 12;
-  position: absolute;
-  top: 0%;
-  width: 100%;
-  height: 100%;
-  background-color: #333333;
-  background-color: rgba(33, 33, 33, 0.9);
-}
-
-/* line 144, ../sass/style.scss */
-.description_box {
-  position: absolute;
-  display: none;
-  z-index: 13;
-  height: 96%;
-  width: 96%;
-  left: 1%;
-  padding-left: 1%;
-  padding-right: 1%;
-  padding-top: 1%;
-  top: 1%;
-  background-color: #FFFFFF;
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 1px solid #999;
-}
-/* line 158, ../sass/style.scss */
-.description_box h3 {
-  padding-bottom: 0px;
-  line-height: 15px;
-}
-
-/* line 164, ../sass/style.scss */
-.description_box_content {
-  width: 96%;
-  height: 80%;
-  position: fixed;
-  overflow: auto;
-}
-
-/* line 171, ../sass/style.scss */
-.x_button {
-  width: 15px;
-}
-
-/* Styles for smaller screens */
-@media (max-width: 700px) {
-  /* line 177, ../sass/style.scss */
-  h2 {
-    font-size: 24px;
-  }
-
-  /* line 180, ../sass/style.scss */
-  h3 {
-    font-size: 18px;
-  }
-
-  /* line 183, ../sass/style.scss */
-  p {
-    font-size: 13px;
-  }
-}
-/* Styles from mobile devices */
-@media (max-width: 625px) {
-  /* Headers */
-  /* line 191, ../sass/style.scss */
-  h1, h2, h3 {
-    line-height: 20px;
-  }
-
-  /* Map */
-  /* line 195, ../sass/style.scss */
-  #map {
-    cursor: default;
-    border: 0px solid #737373;
-    top: 0%;
-    bottom: 0%;
-    height: 100%;
-    width: 100%;
-  }
-
-  /* Social buttons */
-  /* line 204, ../sass/style.scss */
-  #share {
-    display: none;
-  }
-
-  /* Sidebar */
-  /* line 208, ../sass/style.scss */
-  #sidebar {
-    position: relative;
-    border-width: 0 0 1px;
-    border-bottom: 1px solid #FFFFFF;
-    margin-top: 0%;
-    float: left;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    padding-left: 2%;
-    padding-right: 2%;
-    width: 96%;
-    height: auto;
-  }
-  /* line 221, ../sass/style.scss */
-  #sidebar h3 {
-    line-height: 15px;
-    font-size: 20px;
-  }
-
-  /* line 226, ../sass/style.scss */
-  .sidebar_content {
-    display: none;
-  }
-
-  /* line 229, ../sass/style.scss */
-  .description_box_header h3 {
-    line-height: 25px;
-  }
-
-  /* line 232, ../sass/style.scss */
-  .toggle_description {
-    display: inline;
-  }
-
-  /* Leaflet controls */
-  /* line 236, ../sass/style.scss */
-  .leaflet-top {
-    margin-top: 55px;
-  }
-
-  /* line 239, ../sass/style.scss */
-  .leaflet-right {
-    display: none;
-  }
-
-  /* line 243, ../sass/style.scss */
-  .leaflet-container .leaflet-control-attribution, .leaflet-container .leaflet-control-scale {
-    font-size: 10px;
-  }
-
-  /* line 247, ../sass/style.scss */
-  .leaflet-bar {
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0.4);
-  }
-}
-/* Special attributes for small, wide screens */
-@media (max-height: 500px) {
-  /* line 254, ../sass/style.scss */
-  #scroll_more {
-    display: block;
-  }
-
-  /* line 257, ../sass/style.scss */
-  .sidebar_content {
-    height: 60%;
-  }
-
-  /* line 260, ../sass/style.scss */
-  .description_box_content {
-    height: 75%;
-  }
-}
-@media (max-height: 400px) {
-  /* line 266, ../sass/style.scss */
-  #scroll_more {
-    display: block;
-  }
-
-  /* line 269, ../sass/style.scss */
-  .sidebar_content {
-    height: 60%;
-  }
-
-  /* line 272, ../sass/style.scss */
-  .description_box_content {
-    height: 75%;
-  }
-}
-@media (max-height: 320px) {
-  /* line 278, ../sass/style.scss */
-  .sidebar_content {
-    height: 40%;
-  }
-
-  /* line 281, ../sass/style.scss */
-  .description_box_content {
-    height: 65%;
-  }
-}
-/* line 286, ../sass/style.scss */
-.leaflet-bottom {
-  width: 30%;
-}
-/* line 288, ../sass/style.scss */
-.leaflet-bottom .map-legends {
-  width: 100%;
-  font-size: 0.85em;
-}
-
-/* line 294, ../sass/style.scss */
-.leaflet-container {
-  color: #333;
-}
-/* line 296, ../sass/style.scss */
-.leaflet-container h5 {
-  margin-bottom: 0;
-}
-
-/* line 302, ../sass/style.scss */
-.map-legend {
-  -webkit-box-shadow: 0px 0px 5px #333333;
-  -moz-box-shadow: 0px 0px 5px #333333;
-  box-shadow: 0px 0px 5px #333333;
-}
-
-/* line 305, ../sass/style.scss */
+/* line 122, ../sass/style.scss */
 .legend-title {
-  margin: 0;
+  margin-bottom: 0;
 }
 
-/* line 309, ../sass/style.scss */
-.legend-items {
-  list-style-type: none;
+/* line 126, ../sass/style.scss */
+.legend-content {
   margin: 0;
   padding: 0;
+  font-size: 0.8125rem;
+  line-height: 1.35em;
+}
+/* line 132, ../sass/style.scss */
+.legend-content li {
+  list-style: none;
 }
 
-/* line 315, ../sass/style.scss */
-.legend-icon {
-  display: inline-block;
-  margin-right: 15px;
-  margin-left: 5px;
-  width: 10px;
-  height: 10px;
+/* SVG paths */
+/* line 138, ../sass/style.scss */
+.pipeline-section {
+  stroke-width: 5;
+  stroke-opacity: 1;
+  stroke: #000000;
 }
-
-/* line 324, ../sass/style.scss */
-.legend-risk .legend-icon {
-  background: url(../img/marker_sm.png) no-repeat left top;
-  height: 30px;
-  width: 20px;
-  margin-left: 0;
-  margin-right: 10px;
-}
-/* line 331, ../sass/style.scss */
-.legend-risk .legend-label {
-  vertical-align: top;
-}
-
-/* line 336, ../sass/style.scss */
-.legend-route .legend-icon {
-  background-color: #122128;
-}
-
-/* line 340, ../sass/style.scss */
-.legend-park .legend-icon {
-  background-color: #19851c;
-}
-
-/* line 344, ../sass/style.scss */
-.marker-title {
-  font-size: 16.38px;
-}
-
-/* line 348, ../sass/style.scss */
-#posts-nav {
-  text-align: center;
-}
-/* line 350, ../sass/style.scss */
-#posts-nav ul {
-  overflow: hidden;
-  *zoom: 1;
-  padding-left: 0;
-}
-/* line 354, ../sass/style.scss */
-#posts-nav li {
-  display: inline-block;
-}
-/* line 362, ../sass/style.scss */
-#posts-nav i:hover, #posts-nav i:focus, #posts-nav i:active, #posts-nav i.active {
-  color: #7ab86f;
-  cursor: pointer;
-}
-
-/* line 369, ../sass/style.scss */
-#posts-nav-left {
-  margin-right: 10px;
-}
-
-/* line 373, ../sass/style.scss */
-#posts-nav-right {
-  margin-left: 10px;
-}
-
-/* line 377, ../sass/style.scss */
-.small-note {
-  font-size: .9em;
-  font-style: italic;
+/* line 142, ../sass/style.scss */
+.pipeline-section.active {
+  stroke: #ff0000;
 }
