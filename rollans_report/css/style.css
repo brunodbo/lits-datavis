@@ -43,7 +43,7 @@ If you require to comma separate your list
  * HTML5 display definitions
  */
 /* Correct `block` display not defined in IE 8/9. */
-/* line 35, ../sass/_normalize.scss */
+/* line 25, ../sass/_normalize.scss */
 article,
 aside,
 details,
@@ -60,13 +60,13 @@ summary {
 
 /* line 39, ../sass/_normalize.scss */
 * {
-  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 /* Correct `inline-block` display not defined in IE 8/9. */
-/* line 46, ../sass/_normalize.scss */
+/* line 44, ../sass/_normalize.scss */
 audio,
 canvas,
 video {
@@ -159,13 +159,18 @@ body {
  * The order of link states are based on Eric Meyer's article:
  * http://meyerweb.com/eric/thoughts/2007/06/11/who-ordered-the-link-states
  */
+/* line 131, ../sass/_normalize.scss */
+a,
+.leaflet-container a {
+  text-decoration: underline;
+}
 /* line 134, ../sass/_normalize.scss */
 a:link, a:visited,
 .leaflet-container a:link,
 .leaflet-container a:visited {
-  color: #7ab86f;
+  color: white;
 }
-/* line 139, ../sass/_normalize.scss */
+/* line 138, ../sass/_normalize.scss */
 a:hover, a:focus, a:active,
 .leaflet-container a:hover,
 .leaflet-container a:focus,
@@ -173,13 +178,13 @@ a:hover, a:focus, a:active,
   color: #539248;
 }
 
-/* line 144, ../sass/_normalize.scss */
+/* line 145, ../sass/_normalize.scss */
 a, i, div, path {
   transition: color .1s, background-color .1s, border .1s, stroke .2s;
 }
 
 /* Address `outline` inconsistency between Chrome and other browsers. */
-/* line 149, ../sass/_normalize.scss */
+/* line 150, ../sass/_normalize.scss */
 a:focus {
   outline: thin dotted;
 }
@@ -207,12 +212,12 @@ pre {
   margin: 1.5em 0;
 }
 
-/* line 174, ../sass/_normalize.scss */
+/* line 175, ../sass/_normalize.scss */
 p:first-child {
   margin-top: 0.75em;
 }
 
-/* line 177, ../sass/_normalize.scss */
+/* line 178, ../sass/_normalize.scss */
 blockquote {
   /* Also indent the quote on both sides. */
   margin: 1.5em 30px;
@@ -222,7 +227,7 @@ blockquote {
  * Address variable `h1` font-size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari 5, and Chrome.
  */
-/* line 192, ../sass/_normalize.scss */
+/* line 193, ../sass/_normalize.scss */
 h1 {
   /* Set the font-size and line-height while keeping a proper vertical rhythm. */
   font-size: 1.45em;
@@ -232,7 +237,7 @@ h1 {
   margin-bottom: 1.03448em;
 }
 
-/* line 200, ../sass/_normalize.scss */
+/* line 201, ../sass/_normalize.scss */
 h2 {
   font-size: 1.5em;
   line-height: 2em;
@@ -240,7 +245,7 @@ h2 {
   margin-bottom: 1em;
 }
 
-/* line 205, ../sass/_normalize.scss */
+/* line 206, ../sass/_normalize.scss */
 h3 {
   font-size: 1.17em;
   line-height: 1.28205em;
@@ -248,7 +253,7 @@ h3 {
   margin-bottom: 1.28205em;
 }
 
-/* line 210, ../sass/_normalize.scss */
+/* line 211, ../sass/_normalize.scss */
 h4 {
   font-size: 1em;
   line-height: 1.5em;
@@ -256,7 +261,7 @@ h4 {
   margin-bottom: 1.5em;
 }
 
-/* line 215, ../sass/_normalize.scss */
+/* line 216, ../sass/_normalize.scss */
 h5 {
   font-size: 0.83em;
   line-height: 1.80723em;
@@ -264,7 +269,7 @@ h5 {
   margin-bottom: 1.80723em;
 }
 
-/* line 220, ../sass/_normalize.scss */
+/* line 221, ../sass/_normalize.scss */
 h6 {
   font-size: 0.67em;
   line-height: 2.23881em;
@@ -273,13 +278,13 @@ h6 {
 }
 
 /* Address styling not present in IE 8/9, Safari 5, and Chrome. */
-/* line 227, ../sass/_normalize.scss */
+/* line 228, ../sass/_normalize.scss */
 abbr[title] {
   border-bottom: 1px dotted;
 }
 
 /* Address styling not present in Safari 5 and Chrome. */
-/* line 234, ../sass/_normalize.scss */
+/* line 233, ../sass/_normalize.scss */
 dfn,
 em,
 i {
@@ -287,10 +292,10 @@ i {
 }
 
 /* Address differences between Firefox and other browsers. */
-/* line 239, ../sass/_normalize.scss */
+/* line 240, ../sass/_normalize.scss */
 hr {
-  -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
   border: 1px solid #666;
@@ -299,14 +304,14 @@ hr {
 }
 
 /* Address styling not present in IE 8/9. */
-/* line 248, ../sass/_normalize.scss */
+/* line 249, ../sass/_normalize.scss */
 mark {
   background: #ff0;
   color: #000;
 }
 
 /* Correct font family set oddly in Safari 5 and Chrome. */
-/* line 259, ../sass/_normalize.scss */
+/* line 255, ../sass/_normalize.scss */
 code,
 kbd,
 pre,
@@ -314,33 +319,30 @@ samp,
 tt,
 var {
   font-family: "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
-  _font-family: 'courier new', monospace;
   font-size: 1em;
   line-height: 1.5em;
 }
 
 /* Improve readability of pre-formatted text in all browsers. */
-/* line 268, ../sass/_normalize.scss */
+/* line 266, ../sass/_normalize.scss */
 pre {
-  white-space: pre;
   white-space: pre-wrap;
-  word-wrap: break-word;
 }
 
 /* Set consistent quote types. */
-/* line 280, ../sass/_normalize.scss */
+/* line 271, ../sass/_normalize.scss */
 q {
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
 
 /* Address inconsistent and variable font size in all browsers. */
-/* line 285, ../sass/_normalize.scss */
+/* line 276, ../sass/_normalize.scss */
 small {
   font-size: 80%;
 }
 
 /* Prevent `sub` and `sup` affecting `line-height` in all browsers. */
-/* line 291, ../sass/_normalize.scss */
+/* line 281, ../sass/_normalize.scss */
 sub,
 sup {
   font-size: 75%;
@@ -349,12 +351,12 @@ sup {
   vertical-align: baseline;
 }
 
-/* line 297, ../sass/_normalize.scss */
+/* line 288, ../sass/_normalize.scss */
 sup {
   top: -0.5em;
 }
 
-/* line 300, ../sass/_normalize.scss */
+/* line 291, ../sass/_normalize.scss */
 sub {
   bottom: -0.25em;
 }
@@ -362,7 +364,7 @@ sub {
 /**
  * Lists
  */
-/* line 310, ../sass/_normalize.scss */
+/* line 298, ../sass/_normalize.scss */
 dl,
 menu,
 ol,
@@ -371,7 +373,7 @@ ul {
   margin: 1.5em 0;
 }
 
-/* line 317, ../sass/_normalize.scss */
+/* line 307, ../sass/_normalize.scss */
 ol ol,
 ol ul,
 ul ol,
@@ -380,14 +382,14 @@ ul ul {
   margin: 0;
 }
 
-/* line 322, ../sass/_normalize.scss */
+/* line 313, ../sass/_normalize.scss */
 dd {
   margin: 0 0 0 30px;
   /* LTR */
 }
 
 /* Address paddings set differently in IE 6/7. */
-/* line 329, ../sass/_normalize.scss */
+/* line 318, ../sass/_normalize.scss */
 menu,
 ol,
 ul {
@@ -395,42 +397,30 @@ ul {
   /* LTR */
 }
 
-/* Correct list images handled incorrectly in IE 7. */
-/* line 336, ../sass/_normalize.scss */
-nav ul,
-nav ol {
-  list-style: none;
-  list-style-image: none;
-}
-
 /**
  * Embedded content and figures
  *
  * @todo Look into adding responsive embedded video.
  */
-/* line 347, ../sass/_normalize.scss */
+/* line 329, ../sass/_normalize.scss */
 img {
   /* Remove border when inside `a` element in IE 8/9. */
   border: 0;
-  /* Improve image quality when scaled in IE 7. */
-  -ms-interpolation-mode: bicubic;
   /* Suppress the space beneath the baseline */
   /* vertical-align: bottom; */
   /* Responsive images */
   max-width: 100%;
   height: auto;
-  /* Correct IE 8 not scaling image height when resized. */
-  width: auto;
 }
 
 /* Correct overflow displayed oddly in IE 9. */
-/* line 368, ../sass/_normalize.scss */
+/* line 342, ../sass/_normalize.scss */
 svg:not(:root) {
   overflow: hidden;
 }
 
 /* Address margin not present in IE 8/9 and Safari 5. */
-/* line 373, ../sass/_normalize.scss */
+/* line 347, ../sass/_normalize.scss */
 figure {
   margin: 0;
 }
@@ -438,29 +428,23 @@ figure {
 /**
  * Forms
  */
-/* Correct margin displayed oddly in IE 6/7. */
-/* line 383, ../sass/_normalize.scss */
-form {
-  margin: 0;
-}
-
 /* Define consistent border, margin, and padding. */
-/* line 389, ../sass/_normalize.scss */
+/* line 356, ../sass/_normalize.scss */
 fieldset {
   margin: 0 2px;
   /* Apply borders and padding that keep the vertical rhythm. */
   border-color: #c0c0c0;
-  border-top-style: solid;
   border-top-width: 0.0625em;
+  border-top-style: solid;
   padding-top: 0.4625em;
-  border-bottom-style: solid;
   border-bottom-width: 0.0625em;
+  border-bottom-style: solid;
   padding-bottom: 0.9125em;
-  border-left-style: solid;
   border-left-width: 0.0625em;
+  border-left-style: solid;
   padding-left: 0.9125em;
-  border-right-style: solid;
   border-right-width: 0.0625em;
+  border-right-style: solid;
   padding-right: 0.9125em;
 }
 
@@ -469,15 +453,12 @@ fieldset {
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  * 3. Correct alignment displayed oddly in IE 6/7.
  */
-/* line 404, ../sass/_normalize.scss */
+/* line 371, ../sass/_normalize.scss */
 legend {
   border: 0;
   /* 1 */
   padding: 0;
   /* 2 */
-  *margin-left: -7px;
-  /* 3 */
-  /* LTR */
 }
 
 /**
@@ -487,7 +468,7 @@ legend {
  * 4. Improve appearance and consistency with IE 6/7.
  * 5. Keep form elements constrained in their containers.
  */
-/* line 422, ../sass/_normalize.scss */
+/* line 383, ../sass/_normalize.scss */
 button,
 input,
 select,
@@ -498,10 +479,6 @@ textarea {
   /* 2 */
   margin: 0;
   /* 3 */
-  vertical-align: baseline;
-  /* 4 */
-  *vertical-align: middle;
-  /* 4 */
   max-width: 100%;
   /* 5 */
 }
@@ -510,7 +487,7 @@ textarea {
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
-/* line 439, ../sass/_normalize.scss */
+/* line 398, ../sass/_normalize.scss */
 button,
 input {
   line-height: normal;
@@ -522,7 +499,7 @@ input {
  * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
  * Correct `select` style inheritance in Firefox 4+ and Opera.
  */
-/* line 450, ../sass/_normalize.scss */
+/* line 409, ../sass/_normalize.scss */
 button,
 select {
   text-transform: none;
@@ -537,7 +514,7 @@ select {
  * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
  *    Known issue: inner spacing remains in IE 6.
  */
-/* line 466, ../sass/_normalize.scss */
+/* line 423, ../sass/_normalize.scss */
 button,
 html input[type="button"],
 input[type="reset"],
@@ -546,14 +523,12 @@ input[type="submit"] {
   /* 2 */
   cursor: pointer;
   /* 3 */
-  *overflow: visible;
-  /* 4 */
 }
 
 /**
  * Re-set default cursor for disabled elements.
  */
-/* line 478, ../sass/_normalize.scss */
+/* line 434, ../sass/_normalize.scss */
 button[disabled],
 html input[disabled] {
   cursor: default;
@@ -565,15 +540,11 @@ html input[disabled] {
  * 3. Remove excess padding in IE 7.
  *    Known issue: excess padding remains in IE 6.
  */
-/* line 489, ../sass/_normalize.scss */
+/* line 445, ../sass/_normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
   padding: 0;
   /* 2 */
-  *height: 13px;
-  /* 3 */
-  *width: 13px;
-  /* 3 */
 }
 
 /**
@@ -581,12 +552,12 @@ input[type="radio"] {
  * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
  *    (include `-moz` to future-proof).
  */
-/* line 503, ../sass/_normalize.scss */
+/* line 456, ../sass/_normalize.scss */
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
   /* 2 */
 }
@@ -595,14 +566,14 @@ input[type="search"] {
  * Remove inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
  */
-/* line 513, ../sass/_normalize.scss */
+/* line 465, ../sass/_normalize.scss */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
 /* Remove inner padding and border in Firefox 4+. */
-/* line 519, ../sass/_normalize.scss */
+/* line 471, ../sass/_normalize.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -613,7 +584,7 @@ input::-moz-focus-inner {
  * 1. Remove default vertical scrollbar in IE 8/9.
  * 2. Improve readability and alignment in all browsers.
  */
-/* line 528, ../sass/_normalize.scss */
+/* line 481, ../sass/_normalize.scss */
 textarea {
   overflow: auto;
   /* 1 */
@@ -622,7 +593,7 @@ textarea {
 }
 
 /* Form labels. */
-/* line 534, ../sass/_normalize.scss */
+/* line 487, ../sass/_normalize.scss */
 label {
   display: block;
   font-weight: bold;
@@ -631,7 +602,7 @@ label {
 /**
  * Tables
  */
-/* line 542, ../sass/_normalize.scss */
+/* line 495, ../sass/_normalize.scss */
 table {
   /* Remove most spacing between table cells. */
   border-collapse: collapse;
@@ -674,10 +645,8 @@ html {
   top: 0;
   right: 0;
   z-index: 10;
-  -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
+  -webkit-border-radius: 2px;
   border-radius: 2px;
   background-color: rgba(153, 153, 153, 0.95);
   margin: 0.625rem;
@@ -708,9 +677,9 @@ html {
 
 /* line 61, ../sass/style.scss */
 #sidebar {
-  -webkit-box-shadow: 0px 0px 5px #333333;
-  -moz-box-shadow: 0px 0px 5px #333333;
-  box-shadow: 0px 0px 5px #333333;
+  -moz-box-shadow: 0px 5px #333333;
+  -webkit-box-shadow: 0px 5px #333333;
+  box-shadow: 0px 5px #333333;
 }
 
 /* line 65, ../sass/style.scss */
@@ -725,7 +694,7 @@ html {
   width: 100%;
   margin: 0;
 }
-/* line 75, ../sass/style.scss */
+/* line 74, ../sass/style.scss */
 .spill-risks thead,
 .spill-risks tbody {
   font-size: 0.875rem;
@@ -779,10 +748,8 @@ html {
 .map-legend {
   background-color: rgba(153, 153, 153, 0.95);
   color: white;
-  -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
+  -webkit-border-radius: 2px;
   border-radius: 2px;
 }
 
